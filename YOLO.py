@@ -14,7 +14,6 @@ inpHeight = 416  #input Height
 
 #Reading the name files
 
-
 classesFile = "coco.name"
 classes = None
 
