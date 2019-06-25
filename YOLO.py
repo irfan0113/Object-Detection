@@ -18,6 +18,19 @@ def getOutputsNames(net):
     return [layerNames[i[0]-1] for i in net.getUnconnectedOutLayers
 
 
+def postprocess(frame,out):
+    frameHeight = frame.shape[0]
+    frameWidth = frame.shape[1]
+
+    classIDs = []
+    confidence = []
+    boxes = []
+
+    for out in outs:
+        for detection in out:
+            scores = detection[5:]
+            classIDs = np.argmax(scores)
+
 
 
 #Reading the name files
