@@ -11,3 +11,6 @@ Website of the author - https://pjreddie.com/darknet/yolo/
 #TO DO
 Look into the "blob"  -> https://www.pyimagesearch.com/2017/11/06/deep-learning-opencvs-blobfromimage-works/
 Look into running with gpu
+
+
+Understanding forward()  and net.getUnconnectedOutLayers -> https://stackoverflow.com/questions/55883178/understanding-functions-forward-and-getunconnectedoutlayers

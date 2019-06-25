@@ -12,6 +12,14 @@ nmsThreshold = 0.40
 inpWidth = 416   #input Width
 inpHeight = 416  #input Height
 
+
+def getOutputsNames(net):
+    layerNames = net.getLayerNames()
+    return [layerNames[i[0]-1] for i in net.getUnconnectedOutLayers
+
+
+
+
 #Reading the name files
 
 classesFile = "coco.names"
@@ -48,7 +56,7 @@ while cv.waitKey(1)<0:
 blob = cv.dnn.blobFromImage(frame, 1/255,(inpWidth,inpHeight),[0,0,0],1,crop=False)
 
 net.setInput(blob)
-outs = net.forward(getOutputsName(net))
+outs = net.forward(getOutputsNames(net))
 
 postprocess(frame,outs)
 
