@@ -14,7 +14,7 @@ inpHeight = 416  #input Height
 
 #Reading the name files
 
-classesFile = "coco.name"
+classesFile = "coco.names"
 classes = None
 
 with open(classesFile,'rt')as f:
@@ -46,3 +46,10 @@ while cv.waitKey(1)<0:
     hasFrame, frame = cap.read()
 
 blob = cv.dnn.blobFromImage(frame, 1/255,(inpWidth,inpHeight),[0,0,0],1,crop=False)
+
+net.setInput(blob)
+outs = net.forward(getOutputsName(net))
+
+postprocess(frame,outs)
+
+cv.imshow(winName,frame)
