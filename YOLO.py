@@ -22,15 +22,26 @@ def postprocess(frame,out):
     frameHeight = frame.shape[0]
     frameWidth = frame.shape[1]
 
-    classIDs = []
+    classID = []
     confidence = []
     boxes = []
 
     for out in outs:
         for detection in out:
             scores = detection[5:]
-            classIDs = np.argmax(scores)
+            classID = np.argmax(scores)
+            confidence = scores
 
+    if confidence > threshold:
+
+        centerX = int(detection[0]*frameWidth)
+        centerYv= int(detection[1]*frameWidth)
+
+        width = int(detection[2]*frameHeight)
+        height = int(detection[3]*frameHeight)
+
+        left = int(centerX-width/2)
+        top = int(centerY-height/2)
 
 
 #Reading the name files
